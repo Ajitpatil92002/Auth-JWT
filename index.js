@@ -11,7 +11,7 @@ const {
 
 const app = express();
 dotenv.config();
-
+const PORT = process.env.PORT || 3500;
 
 // middleware
 app.use(express.static("public"));
@@ -32,4 +32,4 @@ app.use("/", authroutes);
 app.get("/", (req, res) => res.render("home"));
 app.get("/blogs", requiredAuth, (req, res) => res.render("smoothies"));
 
-app.listen(3500, () => console.log("Server running"));
+app.listen(PORT, () => console.log("Server running"));
